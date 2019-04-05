@@ -1,0 +1,21 @@
+<li *ngIf="postTitle" 
+    [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postloveIts > 0,
+                'list-group-item-danger': postloveIts < 0}"
+    [ngStyle]="{color: getColor()}">
+  <p class="pull-right">Added at : {{ postCreated_at | date: 'EEEE, d, MMMM, y, h:mm:ss a zzzz' }}</p>
+  <h4>{{ postTitle }}</h4>
+  <p>{{ postContent }}</p>
+
+  <button class="btn btn-success glyphicon glyphicon-thumbs-up"
+                (click)="onPostloveIts()">
+                <span class="badge"> {{ postloveIts }} </span>
+               </button>
+  <button class="btn btn-danger glyphicon glyphicon-thumbs-down"
+          style="margin-left:15px"
+                (click)="onPostDontloveIts()"> 
+              </button>
+<button class="btn btn-danger glyphicon glyphicon-remove pull-right"
+                (click)="onDelete()"> </button>
+</li>
+<br>

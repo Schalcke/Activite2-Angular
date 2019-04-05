@@ -1,0 +1,30 @@
+
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header></app-header>
+<div class="container">
+  <div style="text-align:center">
+      <h1 class="jumbotron">
+        Welcome to my {{ title }} !
+      </h1>
+  </div>
+  <br>
+  <router-outlet></router-outlet>
+
+  <h2>Posts</h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <app-post-list  *ngFor="let post of posts; let i = index"
+                        [indexOfPost]="i"
+                        [postCreated_at]="post.created_at"
+                        [postTitle]="post.title"
+                        [postContent]="post.content"
+                        [postloveIts]="post.loveIts"></app-post-list>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+
